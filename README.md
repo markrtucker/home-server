@@ -129,6 +129,19 @@ kubernetes-dashboard-6d97855997-6zrhr       1/1     Running   0          6d22h
 metrics-server-c65c9d66-jkdpq               1/1     Running   0          6d22h
 ```
 
+## Accessing the Dashboard
+
+With this configured, I can port-forward from Windows to access the dashboard.
+
+```
+C:\Users\Mark\k8s>kubectl --namespace kube-system port-forward service/kubernetes-dashboard 8443:443
+Forwarding from 127.0.0.1:8443 -> 8443
+Forwarding from [::1]:8443 -> 8443
+```
+
+Then open `https://localhost:8443` in a browser. This will prompt for the token to login - just copy the value from the config file above.
+
+
 
 ## Future work
 
